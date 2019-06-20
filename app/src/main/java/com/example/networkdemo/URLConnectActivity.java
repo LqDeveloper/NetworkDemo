@@ -89,7 +89,12 @@ public class URLConnectActivity extends AppCompatActivity {
             }
         }
 
-        Log.e("URLConnection", stringBuffer.toString());
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(URLConnectActivity.this,stringBuffer.toString(),Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     private void posetRequest() {
